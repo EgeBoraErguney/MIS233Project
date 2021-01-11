@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% load static %}
+{% block title %}Teams{% endblock %}
+{% block nav %}
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+
+    <a href="/" class="navbar-brand">
+        <img src="{% static 'logo2.png' %}" class="d-inline-block align-middle mr-2">
+        <span class="text-uppercase font-weight-bold">Burgernomists</span>
+    </a>
+
+    <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link ml-4 " href="/">Home</a>
+        <a class="nav-item nav-link ml-4" href="/table/">Table</a>
+        <a class="nav-item nav-link ml-4" href="/graph/">Graph</a>
+        <a class="nav-item nav-link ml-4 " href="/calculator/">Calculator</a>
+        <a class="nav-item nav-link ml-4 active" href="/team/">Team</a>
+        <a class="nav-item nav-link ml-4" href="/contact_us/">Contact Us</a>
+    </div>
+</nav>
+{% endblock %}
+{% block content %}
+
+<h1 class="text-center" style="font-size:64px; color:#A31621" class="">Team</h1>
+<br>
+<div id="team" class="row">
+
+    <div class="col-sm-3">
+        <h2>Doğuş Bulut</h2>
+
+        <div class="container">
+            <img src="{% static 'av1.png' %}" alt="Avatar" class="image">
+            <div class="overlay">
+                <div class="text">Back-end Devoloper</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <h2>Ege Bora Ergüney</h2>
+
+        <div class="container">
+            <img src="{% static 'av1.png' %}" alt="Avatar" class="image">
+            <div class="overlay">
+                <div class="text">Back-end Devoloper</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <h2>Nazlı Elif Demiröz</h2>
+
+        <div class="container">
+            <img src="{% static 'av2.png' %}" alt="Avatar" class="image">
+            <div class="overlay">
+                <div class="text">Front-end Devoloper</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <h2>Furkan Kara</h2>
+
+        <div class="container">
+            <img src="{% static 'av1.png' %}" alt="Avatar" class="image">
+            <div class="overlay">
+                <div class="text">Front-end Devoloper</div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<style>
+			.container {
+				position: relative;
+				width: 50%;
+				border-radius: 50%;
+			}
+
+			.image {
+				display: block;
+				width: 100%;
+				height: auto;
+				border-radius: 50%;
+			}
+
+			.overlay {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 100%;
+				width: 100%;
+				opacity: 0;
+				transition: .5s ease;
+				background-color: #4285F4;
+			}
+
+			.container:hover .overlay {
+				opacity: 1;
+				border-radius: 30%;
+			}
+
+			.text {
+				color: white;
+				font-size: 15px;
+				font-weight: bold;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				text-align: center;
+			}
+			h2{
+			    text-align: center;
+			}
+
+</style>
+
+{% endblock %}

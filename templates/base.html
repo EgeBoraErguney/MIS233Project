@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href={% static 'hamburger.png' %} >
+</head>
+<body>
+{% block nav %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a href="/" class="navbar-brand">
+        <img src="{% static 'logo2.png' %}" class="d-inline-block align-middle mr-2">
+        <span class="text-uppercase font-weight-bold">Burgernomists</span>
+    </a>
+
+    <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link ml-4 active" href="/">Home</a>
+        <a class="nav-item nav-link ml-4" href="/table/">Table</a>
+        <a class="nav-item nav-link ml-4" href="/graph/">Graph</a>
+        <a class="nav-item nav-link ml-4 " href="/calculator/">Calculator</a>
+        <a class="nav-item nav-link ml-4" href="/team/">Team</a>
+        <a class="nav-item nav-link ml-4" href="/contact_us/">Contact Us</a>
+    </div>
+</nav>
+{% endblock %}
+{% block content %}{% endblock %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<footer class="footer">
+    <br> <h4 style="text-align:center" >&copy; Burgernomists, 2020</h4>
+</footer >
+<style>
+body{
+margin-bottom:100px;
+}
+    footer {
+ position: fixed ;
+ bottom: 0;
+ width: 100%;
+ height:60px;
+ background-color: #4285F4;
+ color: white;
+}
+body {
+    font: 400 15px Lato, sans-serif;
+
+  }
+
+
+</style>
+</body>
+</html>

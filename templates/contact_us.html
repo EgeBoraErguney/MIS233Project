@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% load static %}
+{% block title %}Contact Us{% endblock %}
+{% block nav %}
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+
+    <a href="/" class="navbar-brand">
+        <img src="{% static 'logo2.png' %}" class="d-inline-block align-middle mr-2">
+        <span class="text-uppercase font-weight-bold">Burgernomists</span>
+    </a>
+
+    <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link ml-4 " href="/">Home</a>
+        <a class="nav-item nav-link ml-4" href="/table/">Table</a>
+        <a class="nav-item nav-link ml-4" href="/graph/">Graph</a>
+        <a class="nav-item nav-link ml-4 " href="/calculator/">Calculator</a>
+        <a class="nav-item nav-link ml-4" href="/team/">Team</a>
+        <a class="nav-item nav-link ml-4 active" href="/contact_us/">Contact Us</a>
+    </div>
+</nav>
+{% endblock %}
+{% block content %}
+
+<div class="container-fluid bg-grey">
+    <h1 class="text-left" style="font-size:64px; color:#A31621" class="">Contact Us</h1>
+    <div class="row">
+        <div class="col-sm-5">
+            <p>Contact us and we'll get back to you within 24 hours.</p>
+            <p><span class="glyphicon glyphicon-map-marker"></span> Istanbul, TR</p>
+            <p><span class="glyphicon glyphicon-phone"></span> +90 5312345678</p>
+            <p><span class="glyphicon glyphicon-envelope"></span> info@burgernomists.com</p>
+        </div>
+        <div class="col-sm-7 slideanim">
+            <form action="/contact_us/" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        {{ form.name }}
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        {{ form.email }}
+                    </div>
+                </div>
+                {{ form.text }}<br>
+                <div class="row">
+                    <div class="col-sm-12 form-group">
+                        <button class="btn btn-primary pull-right" type="submit">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

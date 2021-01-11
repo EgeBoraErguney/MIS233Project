@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% load static %}
+{% load mathfilters %}
+{% block title %}Table{% endblock %}
+{% block nav %}
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+
+    <a href="/" class="navbar-brand">
+        <img src="{% static 'logo2.png' %}" class="d-inline-block align-middle mr-2">
+        <span class="text-uppercase font-weight-bold">Burgernomists</span>
+    </a>
+
+    <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link ml-4 " href="/">Home</a>
+        <a class="nav-item nav-link ml-4 active" href="/table/">Table</a>
+        <a class="nav-item nav-link ml-4" href="/graph/">Graph</a>
+        <a class="nav-item nav-link ml-4 " href="/calculator/">Calculator</a>
+        <a class="nav-item nav-link ml-4" href="/team/">Team</a>
+        <a class="nav-item nav-link ml-4" href="/contact_us/">Contact Us</a>
+    </div>
+</nav>
+{% endblock %}
+{% block content %}
+<div class="container mt-4 mx-auto ">
+    <h2 class="text-center">Big Mac Index Table</h2>
+    <p class="text-center mt-3">This table shows big mac indexes of countries </p>
+    <div class=" text-center dropdown mb-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select Date
+        </button>
+        <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2020-07-01">1 July 2020</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2020-01-14">14 January 2020</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2019-07-09">9 July 2019</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2019-01-01">1 January 2019</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2018-07-01">1 July 2018</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2018-01-01">1 January 2018</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2017-07-01">1 July 2017</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2017-01-01">1 January 2017</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2016-07-01">1 July 2016</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2016-01-01">1 January 2016</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2015-07-01">1 July 2015</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2015-01-01">1 January 2015</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2014-07-01">1 July 2014</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2014-01-01">1 January 2014</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2013-07-01">1 July 2013</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2013-01-01">1 January 2013</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2012-07-01">1 July 2012</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2012-01-01">1 January 2012</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2011-07-01">1 July 2011</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2010-07-01">1 July 2010</a>
+            <a class="dropdown-item" href="?order_by={{ o }}&filter_by=2010-01-01">1 January 2010</a>
+        </div>
+    </div>
+    <p class="text-center mt-3">{{ table_data.0.date }}</p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th><a href="?order_by=iso_a3&filter_by={{ f }}">Currency Code</a></th>
+            <th><a href="?order_by=name&filter_by={{ f }}">Country</a></th>
+            <th><a href="?order_by=-local_price&filter_by={{ f }}">Local Price</a></th>
+            <th><a href="?order_by=-dollar_ex&filter_by={{ f }}">Dollar Exchange Rate</a></th>
+            <th><a href="?order_by=-USD_raw&filter_by={{ f }}">Dollar Price</a></th>
+            <th>Dollar Valuation</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in table_data %}
+        <tr>
+            <td>{{ row.iso_a3 }}</td>
+            <td>{{ row.name }}</td>
+            <td>{{ row.local_price|floatformat:2 }}</td>
+            <td>{{ row.dollar_ex|floatformat:2 }}</td>
+            <td>{{ row.USD_raw|floatformat:2 }}</td>
+            <td>{{ row.USD_raw|div:base_price|floatformat:2 }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

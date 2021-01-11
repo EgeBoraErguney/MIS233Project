@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% load static %}
+{% load mathfilters %}
+{% block title %}Calculator{% endblock %}
+{% block nav %}
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+
+        <a href="/" class="navbar-brand">
+            <img src="{% static 'logo2.png' %}" class="d-inline-block align-middle mr-2">
+            <span class="text-uppercase font-weight-bold">Burgernomists</span>
+        </a>
+
+        <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link ml-4 " href="/">Home</a>
+            <a class="nav-item nav-link ml-4" href="/table/">Table</a>
+            <a class="nav-item nav-link ml-4" href="/graph/">Graph</a>
+            <a class="nav-item nav-link ml-4 active" href="/calculator/">Calculator</a>
+            <a class="nav-item nav-link ml-4" href="/team/">Team</a>
+            <a class="nav-item nav-link ml-4" href="/contact_us/">Contact Us</a>
+        </div>
+    </nav>
+{% endblock %}
+{% block content %}
+
+    <div class="container mt-4 mx-auto ">
+        <h2 class="text-center">Calculator</h2>
+        <p class="text-center mt-3">Compare countries' currency values</p>
+        <div class="row justify-content-center px-3">
+            <form class="row px-3" action="/calculator/" method="post">
+                {% csrf_token %}
+                <p class="mr-3"> Country 1: {{ form.country1 }}</p>
+                <p class="mr-3"> Country 2: {{ form.country2 }}</p>
+                <button class="btn btn-primary" type="submit" value="Compare">Compare</button>
+            </form>
+        </div>
+    </div>
+    <div class="container mt-4 mx-auto ">
+        {% if posted %}
+            <p style="font-size: 36px" class="text-center">{{ country1 }} currency is %{{ result|abs|floatformat:2 }} {% if result > 0 %}
+                more
+            {% elif result < 0 %}
+                less
+            {% endif %} valued
+                against {{ country2 }} currency </p>
+        {% endif %}
+    </div>
+
+
+{% endblock %}
