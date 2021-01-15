@@ -30,9 +30,11 @@
         <h2>Doğuş Bulut</h2>
 
         <div class="container">
-            <img src="{% static 'av1.png' %}" alt="Avatar" class="image">
-            <div class="overlay">
-                <div class="text">Back-end Devoloper</div>
+            <div class="row">
+                    <img src="{% static 'av1.png' %}" alt="Avatar" class="image">
+                    <div class="overlay">
+                        <div class="text">Back-end Devoloper</div>
+                    </div>
             </div>
         </div>
     </div>
@@ -40,10 +42,12 @@
     <div class="col-sm-3">
         <h2>Ege Bora Ergüney</h2>
 
-        <div class="container">
-            <img src="{% static 'av1.png' %}" alt="Avatar" class="image">
-            <div class="overlay">
-                <div class="text">Back-end Devoloper</div>
+         <div class="container">
+            <div class="row">
+                    <img src="{% static 'av1.png' %}" alt="Avatar" class="image">
+                    <div class="overlay">
+                        <div class="text">Back-end Devoloper</div>
+                    </div>
             </div>
         </div>
     </div>
@@ -51,10 +55,12 @@
     <div class="col-sm-3">
         <h2>Nazlı Elif Demiröz</h2>
 
-        <div class="container">
-            <img src="{% static 'av2.png' %}" alt="Avatar" class="image">
-            <div class="overlay">
-                <div class="text">Front-end Devoloper</div>
+         <div class="container">
+            <div class="row">
+                    <img src="{% static 'av2.png' %}" alt="Avatar" class="image">
+                    <div class="overlay">
+                        <div class="text">Front-end Devoloper</div>
+                    </div>
             </div>
         </div>
     </div>
@@ -62,10 +68,13 @@
     <div class="col-sm-3">
         <h2>Furkan Kara</h2>
 
-        <div class="container">
-            <img src="{% static 'av1.png' %}" alt="Avatar" class="image">
-            <div class="overlay">
-                <div class="text">Front-end Devoloper</div>
+         <div class="container">
+            <div class="row">
+
+                    <img src="{% static 'av1.png' %}" alt="Avatar" class="image">
+                    <div class="overlay">
+                        <div class="text">Front-end Devoloper</div>
+                    </div>
             </div>
         </div>
     </div>
@@ -93,16 +102,15 @@
 				bottom: 0;
 				left: 0;
 				right: 0;
-				height: 100%;
-				width: 100%;
 				opacity: 0;
 				transition: .5s ease;
-				background-color: #4285F4;
+				background-color: #307BFF;
+				border-radius: 50%;
 			}
 
 			.container:hover .overlay {
 				opacity: 1;
-				border-radius: 30%;
+				border-radius: 50%;
 			}
 
 			.text {
@@ -119,6 +127,9 @@
 			h2{
 			    text-align: center;
 			}
+
+
+
 
 </style>
 
